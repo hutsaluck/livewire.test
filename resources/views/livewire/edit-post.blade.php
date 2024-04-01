@@ -6,16 +6,16 @@
     <form method="POST" wire:submit="update">
         <div>
             <label for="title" class="block font-medium text-sm text-white">Title</label>
-            <input id="title" wire:model="form.title" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm text-gray-700" type="text" />
-            @error('title')
+            <input id="title" wire:model.blur="form.title" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm text-gray-700" type="text" />
+            @error('form.title')
             <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mt-4">
             <label for="body" class="block font-medium text-sm text-white">Body</label>
-            <textarea id="body" wire:model="form.body" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm text-gray-700"></textarea>
-            @error('body')
+            <textarea id="body" wire:model.blur="form.body" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm text-gray-700"></textarea>
+            @error('form.body')
             <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
             @enderror
         </div>
