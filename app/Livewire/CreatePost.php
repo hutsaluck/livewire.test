@@ -16,7 +16,8 @@ class CreatePost extends Component
 
     public function render()
     {
-        return view('livewire.create-post');
+        return view('livewire.create-post')
+            ->title('Create Post');
     }
 
     public function updatedFormTitle( $property ): void
