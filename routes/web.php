@@ -33,4 +33,5 @@ require __DIR__.'/auth.php';
 Route::view('posts/{post}/edit', 'posts.edit');*/
 
 Route::get('/posts/create', \App\Livewire\CreatePost::class);
+Route::get('/help', \App\Livewire\ShowHelp::class);
 
