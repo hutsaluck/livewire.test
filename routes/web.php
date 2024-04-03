@@ -32,9 +32,9 @@ require __DIR__.'/auth.php';
 /*Route::view('posts/create', 'posts.create');
 Route::view('posts/{post}/edit', 'posts.edit');*/
 
-Route::get('/posts/create', \App\Livewire\CreatePost::class);
+Route::get('/posts/create', \App\Livewire\CreatePost::class)->name('posts.create');
 Route::get('/help', \App\Livewire\ShowHelp::class);
-Route::get('/posts', \App\Livewire\ShowPosts::class);
+Route::get('/posts', \App\Livewire\ShowPosts::class)->name('posts');
 Route::get('/comments', \App\Livewire\ShowComments::class);
 Route::get('post/{post}', \App\Livewire\ViewPost::class);
 
