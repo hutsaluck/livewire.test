@@ -36,4 +36,5 @@ Route::get('/posts/create', \App\Livewire\CreatePost::class);
 Route::get('/help', \App\Livewire\ShowHelp::class);
 Route::get('/posts', \App\Livewire\ShowPosts::class);
 Route::get('/comments', \App\Livewire\ShowComments::class);
+Route::get('post/{post}', \App\Livewire\ViewPost::class);
 
