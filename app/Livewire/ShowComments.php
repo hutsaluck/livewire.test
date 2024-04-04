@@ -11,9 +11,12 @@ class ShowComments extends Component
 {
     public Post $post;
 
+    public $comments      = [];
+
     public function mount( Post $post ):void
     {
         $this->post = $post;
+        $this->comments = $this->post->comments()->get();
     }
 
     #[Computed]
@@ -21,6 +24,16 @@ class ShowComments extends Component
     {
         return $this->post->comments()->get();
     }
+
+    public function placeholder(): string
+    {
+        return <<<'HTML'
+            <div>
+                Loading...
+            </div>
+        HTML;
+    }
+
     public function render()
     {
         return view('livewire.show-comments');

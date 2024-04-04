@@ -7,7 +7,8 @@
 
                 <p>Comments: {{ $commentsCount }}</p>
 
-                <livewire:create-comment :post="$post" />
+                <livewire:create-comment :post="$post"/>
+                <livewire:show-comments :post="$post" lazy/>
             </div>
         </div>
     </div>

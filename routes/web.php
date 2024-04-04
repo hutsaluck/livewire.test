@@ -38,3 +38,5 @@ Route::get('/posts', \App\Livewire\ShowPosts::class)->name('posts');
 Route::get('/comments', \App\Livewire\ShowComments::class);
 Route::get('post/{post}', \App\Livewire\ViewPost::class);
 
+Route::get('products', [\App\Http\Controllers\ProductController::class, 'index']);
+
