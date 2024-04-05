@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\ProductsForm;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use App\Models\Product;
@@ -11,12 +12,7 @@ use Illuminate\Contracts\View\View;
 
 class ProductsCreate extends Component
 {
-    #[Validate('required|min:3')]
-    public string $name = '';
-    #[Validate('required|min:3')]
-    public string $description = '';
-    #[Validate('required|exists:categories,id', as: 'category')]
-    public int $category_id;
+    public ProductsForm $form;
     public Collection $categories;
 
     public function mount(): void
@@ -26,9 +22,7 @@ class ProductsCreate extends Component
 
     public function save()
     {
-        $this->validate();
-
-        Product::create($this->only(['name', 'description', 'category_id']));
+        $this->form->save();
 
         $this->redirect('/products');
     }
