@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +22,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->text(50),
+            'color' => collect(Product::COLOR_LIST)->random(),
         ];
     }
 }
