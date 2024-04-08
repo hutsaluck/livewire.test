@@ -13,12 +13,12 @@ class ProductsForm extends Form
     public string $name = '';
     #[Validate('required|min:3')]
     public string $description = '';
-    #[Validate('required|exists:categories,id', as: 'category')]
-    public int $category_id = 0;
     #[Validate('required|string')]
     public string $color = '';
     #[Validate('boolean')]
     public bool $in_stock = true;
+    #[Validate('required|array', as: 'category')]
+    public array $productCategories = [];
 
     public function setProduct(Product $product): void
     {
@@ -28,13 +28,15 @@ class ProductsForm extends Form
         $this->category_id = $product->category_id;
         $this->color = $product->color;
         $this->in_stock = $product->in_stock;
+        $this->productCategories = $product->categories()->pluck('id')->toArray();
     }
 
     public function save(): void
     {
         $this->validate();
 
-        Product::create($this->all());
+        $product = Product::create($this->all());
+        $product->categories()->sync($this->productCategories);
     }
 
     public function update(): void
@@ -42,5 +44,6 @@ class ProductsForm extends Form
         $this->validate();
 
         $this->product->update($this->all());
+        $this->product->categories()->sync($this->productCategories);
     }
 }

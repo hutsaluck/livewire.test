@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Category::factory(10)->create();
-        Product::factory(50)->create();
+        $categories = collect(Category::pluck('id'));
+        Product::factory(50)
+            ->create()
+            ->each(function (Product $product) use ($categories) {
+                $product->categories()->sync($categories->random(2));
+            });
 
         /*$this->call([
             UserSeeder::class,
