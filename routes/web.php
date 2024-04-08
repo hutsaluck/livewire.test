@@ -41,5 +41,8 @@ Route::get('post/{post}', \App\Livewire\ViewPost::class);
 Route::get('products', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('products/create', \App\Livewire\ProductsCreate::class)->name('products.create');
 Route::get('products/{product}/edit', \App\Livewire\ProductsEdit::class)->name('products.edit');
+
 Route::get('countries', \App\Livewire\DropDowns::class)->name('countries');
+
+Route::get('devices', \App\Livewire\ParentChildren::class)->name('devices');
 
