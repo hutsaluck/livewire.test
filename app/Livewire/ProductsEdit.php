@@ -9,9 +9,12 @@ use Illuminate\Support\Collection;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ProductsEdit extends Component
 {
+    use WithFileUploads;
+
     public ProductsForm $form;
     public Collection $categories;
 
