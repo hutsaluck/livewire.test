@@ -47,3 +47,5 @@ Route::get('countries', \App\Livewire\DropDowns::class)->name('countries');
 Route::get('devices', \App\Livewire\ParentChildren::class)->name('devices');
 Route::get('edit-devices', \App\Livewire\EditModal::class)->name('devices.edit');
 
+Route::get('autorefresh', \App\Livewire\Autorefresh::class)->name('autorefresh');
+
