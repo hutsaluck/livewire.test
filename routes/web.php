@@ -45,4 +45,5 @@ Route::get('products/{product}/edit', \App\Livewire\ProductsEdit::class)->name('
 Route::get('countries', \App\Livewire\DropDowns::class)->name('countries');
 
 Route::get('devices', \App\Livewire\ParentChildren::class)->name('devices');
+Route::get('edit-devices', \App\Livewire\EditModal::class)->name('devices.edit');
 
